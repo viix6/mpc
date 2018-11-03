@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PetProfile">
+
+    <LinearLayout
+        android:layout_width="369dp"
+        android:layout_height="500dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/new_pet_profile"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/NameOfPet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="@string/name_of_pet"
+            android:inputType="textPersonName"
+            android:text="@string/name_of_pet"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pet_type"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"/>
+
+        <RadioButton
+            android:id="@+id/rbtnDog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dog"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"/>
+
+        <RadioButton
+            android:id="@+id/rbtnCat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cat"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"/>
+
+        <EditText
+            android:id="@+id/breedText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:hint="@string/breed"
+            android:inputType="textPersonName"
+            android:text="@string/breed"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/wghtText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:hint="@string/weight"
+            android:inputType="textPersonName"
+            android:text="@string/weight"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/ageText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:hint="@string/date_of_birth"
+
+            android:inputType="date"
+            android:text="@string/date_of_birth"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:layout_marginTop="85dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

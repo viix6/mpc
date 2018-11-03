@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "819658104047",
+    "firebase_url": "https://mpc-5ac2f.firebaseio.com",
+    "project_id": "mpc-5ac2f",
+    "storage_bucket": "mpc-5ac2f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:819658104047:android:fc3c793b8ada1e38",
+        "android_client_info": {
+          "package_name": "com.example.viix.mpc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "819658104047-qfvs3esq10v92rl5ofhi9t4rar69dlc2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.viix.mpc",
+            "certificate_hash": "92f3b892334e995693043ca862324ca7724af8b5"
+          }
+        },
+        {
+          "client_id": "819658104047-k6chrebq6equ01iv423g79k99b3i0k9o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.viix.mpc",
+            "certificate_hash": "7e47e758c418977d24074a62c5f2ad354605eb7e"
+          }
+        },
+        {
+          "client_id": "819658104047-di5t6t926amcb0qo62pjihosj72ngnm2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDspyGl2hIW_bvnBwcvIkr1d4rTs_-Ml_c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "819658104047-di5t6t926amcb0qo62pjihosj72ngnm2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
