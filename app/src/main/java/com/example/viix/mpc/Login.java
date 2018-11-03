@@ -75,9 +75,18 @@ public class Login extends AppCompatActivity {
                                                     Toast.LENGTH_LONG).show();
                                             Log.v("error", task.getResult().toString());
                                         } else {
-                                            Intent intent = new Intent(Login.this, Main2Activity.class);
-                                            startActivity(intent);
-                                            finish();
+                                            FirebaseUser user = mAuth.getCurrentUser();
+                                            if(user != null)
+                                            {
+                                                //user+password was correct
+                                                Intent intent = new Intent(Login.this, Main2Activity.class);
+                                                startActivity(intent);
+                                                finish();
+                                            }
+                                            else
+                                            {
+                                                //TODO: incorrect name and/or password
+                                            }
                                         }
                                         PD.dismiss();
                                     }
