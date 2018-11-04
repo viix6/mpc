@@ -30,6 +30,18 @@
             android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"/>
 
+        <ScrollView
+            android:id="@+id/profileScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/profileLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+
         <Button
             android:id="@+id/btnAdd"
             android:layout_width="match_parent"
