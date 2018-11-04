@@ -30,8 +30,7 @@ public class Login extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-
-            //TODO:the user is already logged in, we need to redirect him to the main activity
+            startActivity(new Intent(Login.this, Main2Activity.class));
         }
         else{
             //the user is not logged in, there is nothing to do, he is on the right activity
