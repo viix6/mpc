@@ -32,18 +32,10 @@ public class Main2Activity extends AppCompatActivity {
         btnSignOut =  findViewById(R.id.btnSignout);
 
         btnSignOut.setOnClickListener(new View.OnClickListener() {
-            @Override            public void onClick(View view) {
+            @Override
+            public void onClick(View view) {
                 auth.signOut();
-                FirebaseAuth.AuthStateListener authListener = new FirebaseAuth.AuthStateListener() {
-                    @Override
-                    public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                        FirebaseUser user = firebaseAuth.getCurrentUser();
-                        if (user == null) {
-                            startActivity(new Intent(Main2Activity.this, Login.class));
-                            finish();
-                        }
-                    }
-                };
+                startActivity(new Intent(Main2Activity.this, Login.class));
             }
         });
 
