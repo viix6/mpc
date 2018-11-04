@@ -24,14 +24,14 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/new_pet_profile"
             android:layout_marginTop="10dp"
+            android:text="@string/new_pet_profile"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/NameOfPet"
+            android:id="@+id/nameText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -42,31 +42,39 @@
             android:textColor="@color/colorPrimary"
             android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/textView3"
+        <RadioGroup
+            android:id="@+id/typeR"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/pet_type"
-            android:textSize="15sp"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp"/>
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="166dp">
 
-        <RadioButton
-            android:id="@+id/rbtnDog"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/dog"
-            android:textSize="15sp"
-            android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/pet_type"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-        <RadioButton
-            android:id="@+id/rbtnCat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/cat"
-            android:textSize="15sp"
-            android:textColor="@color/colorPrimary"/>
+            <RadioButton
+                android:id="@+id/rbtnDog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dog"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/rbtnCat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cat"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp" />
+        </RadioGroup>
 
         <EditText
             android:id="@+id/breedText"
@@ -87,7 +95,7 @@
             android:layout_marginTop="5dp"
             android:ems="10"
             android:hint="@string/weight"
-            android:inputType="textPersonName"
+            android:inputType="textPersonName|numberDecimal"
             android:text="@string/weight"
             android:textColor="@color/colorPrimary"
             android:textSize="15sp" />
@@ -99,30 +107,32 @@
             android:layout_marginTop="5dp"
             android:ems="10"
             android:hint="@string/date_of_birth"
-
             android:inputType="date"
             android:text="@string/date_of_birth"
             android:textColor="@color/colorPrimary"
             android:textSize="15sp" />
 
         <Button
-            android:id="@+id/btnSave"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/save"
-            android:layout_marginTop="85dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold" />
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="75dp"
+                android:text="@string/save"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btnCancel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/cancel"
-            android:layout_marginTop="5dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"/>
+                android:id="@+id/btnCancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/cancel"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold" />
+
 
     </LinearLayout>
+
+
 
 </android.support.constraint.ConstraintLayout>
