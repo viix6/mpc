@@ -87,8 +87,12 @@ public class PetProfile extends AppCompatActivity {
         user.put("breed",breed);
         user.put("weight",weight);
         user.put("age",age);
+        //we need an unique ID for each pet
+        // we are lazy and the ID needs to be unique only for the user, so we can use the current time as an ID
+        // (a same user can't create 2 pets at the same time), p1 p2?
+        Long uniqueId = System.currentTimeMillis()/1000;
 
-        db.collection("users").document(this.userUid)
+        db.collection(this.userUid).document(uniqueId+"")
                 .set(user)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
