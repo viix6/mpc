@@ -29,7 +29,7 @@ public class Main2Activity extends AppCompatActivity {
 
         btnProfiles = findViewById(R.id.btnProfiles);
         btnReminders = findViewById(R.id.btnReminders);
-        btnSignOut =  findViewById(R.id.sign_out_button);
+        btnSignOut =  findViewById(R.id.btnSignout);
 
         btnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override            public void onClick(View view) {
