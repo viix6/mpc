@@ -51,14 +51,14 @@ public class Register extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         if (mAuth.getCurrentUser() != null) {
-            startActivity(new Intent(Register.this, MainActivity.class));
+            startActivity(new Intent(Register.this, Main2Activity.class));
             finish();
         }
 
-        inputEmail = (EditText) findViewById(R.id.registerEmail);
-        inputPassword = (EditText) findViewById(R.id.registerPassword);
-        btnSignUp = (Button) findViewById(R.id.sign_up_button);
-        btnLogin = (Button) findViewById(R.id.sign_in_button);
+        inputEmail = findViewById(R.id.registerEmail);
+        inputPassword = findViewById(R.id.registerPassword);
+        btnSignUp = findViewById(R.id.sign_up_button);
+        btnLogin = findViewById(R.id.sign_in_button);
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override            public void onClick(View view) {
@@ -75,6 +75,7 @@ public class Register extends AppCompatActivity {
                                     Log.d(TAG, "createUserWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
 
+
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Log.w(TAG, "createUserWithEmail:failure", task.getException());
@@ -89,6 +90,14 @@ public class Register extends AppCompatActivity {
             }
         });
 
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Register.this, Login.class);
+            }
+        });
+
 
     }
+
 }

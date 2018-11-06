@@ -104,5 +104,11 @@ public class PetProfile extends AppCompatActivity {
                     public void onFailure(@NonNull Exception e) {
                     }
                 });
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PetProfile.this, Profiles.class);
+            }
+        });
     }
 }

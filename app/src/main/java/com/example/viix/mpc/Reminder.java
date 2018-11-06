@@ -20,7 +20,10 @@ public class Reminder extends AppCompatActivity {
         calendarView = findViewById(R.id.calendarView);
         btnSaveC = findViewById(R.id.btnSaveC);
 
-
+        //TODO: select date and time
+        //TODO: retrieve pet name once date and time r chosen
+        //TODO: set reminder for selected time and date
+        //TODO: display reminder on chosen dates and times
 
 
 

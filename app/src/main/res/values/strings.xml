@@ -34,5 +34,6 @@
     <string name="dog">Dog</string>
     <string name="pet_type">Pet Type</string>
     <string name="name_of_pet">Name of pet</string>
+    <string name="sign_out2">Sign out</string>
 
 </resources>

@@ -33,13 +33,16 @@
         <ScrollView
             android:id="@+id/profileScrollView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            >
 
             <LinearLayout
                 android:id="@+id/profileLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                />
         </ScrollView>
 
         <Button
@@ -47,7 +50,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/add"
-            android:layout_marginTop="400dp"
             android:background="@color/lavender"/>
 
 
