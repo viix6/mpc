@@ -12,11 +12,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Main2Activity extends AppCompatActivity {
 
-    Button btnProfiles;
-    Button btnReminders;
-    Button btnSignOut ;
-    FirebaseAuth auth;
-    FirebaseUser user;
+   private Button btnProfiles, btnReminders, btnSignOut ;
+   private FirebaseAuth auth;
+   private FirebaseUser user;
 
 
     @Override
@@ -36,6 +34,7 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View view) {
                 auth.signOut();
                 startActivity(new Intent(Main2Activity.this, Login.class));
+                finish();
             }
         });
 

@@ -33,6 +33,8 @@ public class Register extends AppCompatActivity {
         if (currentUser != null) {
 
             //TODO:the user is already logged in, we need to redirect him to the main activity
+            startActivity(new Intent(Register.this, Main2Activity.class));
+            finish();
         }
         else{
             //the user is not logged in, there is nothing to do, he is on the right activity
@@ -93,7 +95,7 @@ public class Register extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Register.this, Login.class);
+                startActivity(new Intent(Register.this, Login.class));
             }
         });
 

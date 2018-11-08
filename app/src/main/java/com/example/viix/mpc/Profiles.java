@@ -13,12 +13,11 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import android.support.annotation.NonNull;
 import android.widget.LinearLayout;
-
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.OnCompleteListener;
 
 public class Profiles extends AppCompatActivity {
-    Button btnAdd;
+    private Button btnAdd;
     private LinearLayout linearLayout;
     private FirebaseFirestore db;
     private String userUid;
@@ -53,9 +52,10 @@ public class Profiles extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                String petName = (String)document.get("name");
+                                String petName = (String)document.get("Name");
                                 String petID = document.getId();
                                 addPetButton(petName,petID);
+
                             }
                         } else {
                             //fail
@@ -63,13 +63,20 @@ public class Profiles extends AppCompatActivity {
                     }
                 });
     }
-
+    // TODO : fix back command issue where it display old view
     private void addPetButton(String petName, String petID){
         Button petButton = new Button(this);
         petButton.setText(petName);
-        //TODO: add a listener to the button to start the activity where the pet will be display
+        //add a listener to the button to start the activity where the pet will be display
+        petButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Profiles.this, PetDisplay.class));
+            }
+        });
         //TODO : pass the petID as a parameter to our activity so we can retrieve the data from the firestore
         this.linearLayout.addView(petButton);
+
 
 
     }

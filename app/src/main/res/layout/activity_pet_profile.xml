@@ -28,7 +28,8 @@
             android:text="@string/new_pet_profile"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"/>
 
         <EditText
             android:id="@+id/nameText"
@@ -40,7 +41,8 @@
             android:inputType="textPersonName"
             android:text="@string/name_of_pet"
             android:textColor="@color/colorPrimary"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:layout_marginLeft="5dp"/>
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
@@ -49,7 +51,8 @@
             android:text="@string/pet_type"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="15sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"/>
 
         <RadioGroup
             android:id="@+id/typeR"
@@ -88,7 +91,8 @@
             android:inputType="textPersonName"
             android:text="@string/breed"
             android:textColor="@color/colorPrimary"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:layout_marginLeft="5dp"/>
 
         <EditText
             android:id="@+id/wghtText"
@@ -100,7 +104,8 @@
             android:inputType="textPersonName|numberDecimal"
             android:text="@string/weight"
             android:textColor="@color/colorPrimary"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:layout_marginLeft="5dp"/>
 
         <EditText
             android:id="@+id/ageText"
@@ -112,7 +117,8 @@
             android:inputType="date"
             android:text="@string/date_of_birth"
             android:textColor="@color/colorPrimary"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:layout_marginLeft="5dp"/>
 
         <Button
                 android:id="@+id/btnSave"

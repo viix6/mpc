@@ -55,7 +55,10 @@ public class PetProfile extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(PetProfile.this, Profiles.class));
                 save();
+                finish();
+
             }
         });
 
@@ -81,12 +84,13 @@ public class PetProfile extends AppCompatActivity {
              type = (String) btn.getText();
         }
 
+
         Map<String, Object> user = new HashMap<>();
-        user.put("name",name);
-        user.put("type",type);
-        user.put("breed",breed);
-        user.put("weight",weight);
-        user.put("age",age);
+        user.put("Name",name);
+        user.put("Type",type);
+        user.put("Breed",breed);
+        user.put("Weight",weight);
+        user.put("Age",age);
         //we need an unique ID for each pet
         // we are lazy and the ID needs to be unique only for the user, so we can use the current time as an ID
         // (a same user can't create 2 pets at the same time), p1 p2?
@@ -104,11 +108,6 @@ public class PetProfile extends AppCompatActivity {
                     public void onFailure(@NonNull Exception e) {
                     }
                 });
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(PetProfile.this, Profiles.class);
-            }
-        });
+
     }
 }

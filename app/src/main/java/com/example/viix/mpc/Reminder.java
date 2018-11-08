@@ -8,8 +8,8 @@ import android.widget.CalendarView;
 
 public class Reminder extends AppCompatActivity {
 
-    CalendarView calendarView;
-    Button btnSaveC;
+   private CalendarView calendarView;
+   private Button btnSaveC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
