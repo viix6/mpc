@@ -66,6 +66,7 @@ public class  Reminder2 extends AppCompatActivity implements View.OnClickListene
         btnSDate.setOnClickListener(this);
         btnSTime.setOnClickListener(this);
         btnSPet.setOnClickListener(this);
+        btnSsave.setOnClickListener(this);
         this.db = FirebaseFirestore.getInstance();
         this.userUid = FirebaseAuth.getInstance().getUid();
 
@@ -215,7 +216,7 @@ public class  Reminder2 extends AppCompatActivity implements View.OnClickListene
         user.put("Hour",mHour);
         user.put("Minute",mMinute);
         user.put("Pets", petArray);
-        user.put("Notes", textNote);
+        user.put("Notes", textNote.getText());
         //we need an unique ID for each reminders
         Long uniqueId = System.currentTimeMillis()/1000;
 
