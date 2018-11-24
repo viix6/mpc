@@ -44,6 +44,7 @@ public class  Reminder2 extends AppCompatActivity implements View.OnClickListene
     private LinearLayout checkboxLayout;
     private HashMap<String,CheckBox> checkboxHashmap;
     private ArrayList<String> petArray;
+    private ArrayList<String> petNamesArray;
     private View checkBoxView;
 
 
@@ -73,6 +74,7 @@ public class  Reminder2 extends AppCompatActivity implements View.OnClickListene
 
         this.checkboxHashmap = new HashMap<>();
         this.petArray = new ArrayList<>();
+        this.petNamesArray = new ArrayList<>();
 
 
 
@@ -98,7 +100,6 @@ public class  Reminder2 extends AppCompatActivity implements View.OnClickListene
             pickPet();
         }
         else if (v == btnSsave){
-            Log.v("MY_DEBUG","BUTTON CLICKED");
             save();
         }
     }
@@ -157,9 +158,11 @@ public class  Reminder2 extends AppCompatActivity implements View.OnClickListene
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                String petName = (String)document.get("Name");
-                                String petID = document.getId();
-                                addCheckbox(petName,petID);
+                                if("PetData".equals((String)document.get("DataType"))) {
+                                    String petName = (String) document.get("Name");
+                                    String petID = document.getId();
+                                    addCheckbox(petName, petID);
+                                }
                             }
                         } else {
                             //fail
@@ -191,22 +194,36 @@ public class  Reminder2 extends AppCompatActivity implements View.OnClickListene
                 {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        petNamesArray.clear();
                         fillPetArray();
+                        fillPetText();
                     }
+
 
                 })
                 .setNegativeButton("Cancel", null)
                 .show();
     }
 
+    void fillPetText(){
+        String results = "";
+        for(String result : this.petNamesArray){
+            results = results + " " + result + ", ";
+        }
+        textSPet.setText(results);
+
+    }
     void fillPetArray(){
         for(HashMap.Entry<String,CheckBox> entry : this.checkboxHashmap.entrySet()){
             if(entry.getValue().isChecked()){
                 this.petArray.add(entry.getKey());
+                this.petNamesArray.add(entry.getValue().getText().toString());
             }
         }
     }
 
+    //TODO: confirm reminder
+    //TODO: notifications
     private void save() {
         Map<String, Object> user = new HashMap<>();
         user.put("DataType","ReminderData");

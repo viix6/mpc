@@ -105,7 +105,9 @@
                 android:layout_marginLeft="168dp"
                 android:layout_marginEnd="0dp"
                 android:layout_marginTop="5dp"
-                tools:ignore="NotSibling" />
+                tools:ignore="NotSibling"
+                android:inputType="textMultiLine"
+                />
 
             <Button
                 android:id="@+id/btnSPet"
@@ -123,16 +125,17 @@
 
             <EditText
                 android:id="@+id/textNote"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="347dp"
+                android:layout_height="105dp"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="64dp"
-                android:layout_marginBottom="108dp"
+                android:layout_marginStart="11dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="94dp"
                 android:ems="10"
-                android:inputType="textMultiLine"
                 android:hint="Add note"
-                />
+                android:inputType="textMultiLine" />
 
         </RelativeLayout>
 
@@ -144,7 +147,9 @@
             android:textColor="@color/white"
             android:background="@drawable/mybutton"
             android:backgroundTint="@color/colorPrimary"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            />
 
     </LinearLayout>
 
