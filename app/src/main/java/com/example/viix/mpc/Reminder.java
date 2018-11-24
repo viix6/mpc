@@ -22,7 +22,7 @@ public class Reminder extends AppCompatActivity {
         calendarView = findViewById(R.id.calendarView);
         btnSaveC = findViewById(R.id.btnSaveC);
 
-        //TODO: select date and time
+
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
@@ -35,9 +35,7 @@ public class Reminder extends AppCompatActivity {
 
             }
         });
-        //TODO: retrieve pet name once date and time r chosen
-        //TODO: set reminder for selected time and date
-        //TODO: display reminder on chosen dates and times
+
 
 
 

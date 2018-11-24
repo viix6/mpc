@@ -22,7 +22,6 @@ import com.google.firebase.auth.FirebaseAuth;
 public class PetProfile extends AppCompatActivity {
     private Button btnSave, btnCancel;
     private EditText nameText, breedText, wghtText, ageText;
-    private RadioButton rbtnDog, rbtnCat;
     private RadioGroup typeR;
     private FirebaseFirestore db;
     private String userUid;

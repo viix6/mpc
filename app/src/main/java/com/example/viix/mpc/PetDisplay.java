@@ -44,13 +44,15 @@ public class PetDisplay extends AppCompatActivity {
         linearLayout = findViewById(R.id.displayLayout);
         this.db = FirebaseFirestore.getInstance();
         this.userUid = FirebaseAuth.getInstance().getUid();
-        addPetInfos();
+
+
         btnReminderD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(PetDisplay.this, Reminder2.class));
             }
         });
+
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,8 +61,26 @@ public class PetDisplay extends AppCompatActivity {
             }
         });
 
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PetDisplay.this, PetEdit.class);
+                intent.putExtra("petID",uniqueId);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
     // TODO: edit button to edit the information
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        addPetInfos();
+
+    }
+
     
 
     private void addPetInfos(){
@@ -92,6 +112,8 @@ public class PetDisplay extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void addPetInfo(String petName, String petType, String petBreed, String petWeight, String petAge){
+        this.linearLayout.removeAllViews();
+
         TextView petText = new TextView(this);
         TextView petText1 = new TextView(this);
         TextView petText2 = new TextView(this);
@@ -105,7 +127,6 @@ public class PetDisplay extends AppCompatActivity {
 
 
 
-        //TODO : pass the petID as a parameter to our activity so we can retrieve the data from the firestore
         this.linearLayout.addView(petText);
         this.linearLayout.addView(petText1);
         this.linearLayout.addView(petText2);

@@ -43,6 +43,7 @@
     <string name="timeR">Select Time</string>
     <string name="petR">Select Pet</string>
     <string name="saveR2">Save</string>
+    <string name="edit_pet_profile">Edit pet Profile</string>
 
 
 </resources>

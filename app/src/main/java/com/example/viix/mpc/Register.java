@@ -32,7 +32,7 @@ public class Register extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
 
-            //TODO:the user is already logged in, we need to redirect him to the main activity
+
             startActivity(new Intent(Register.this, Main2Activity.class));
             finish();
         }
