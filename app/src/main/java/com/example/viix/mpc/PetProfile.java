@@ -84,6 +84,7 @@ public class PetProfile extends AppCompatActivity {
 
 
         Map<String, Object> user = new HashMap<>();
+        user.put("DataType","PetData");
         user.put("Name",name);
         user.put("Type",type);
         user.put("Breed",breed);

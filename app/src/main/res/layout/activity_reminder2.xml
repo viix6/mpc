@@ -120,6 +120,20 @@
                 app:layout_constraintEnd_toEndOf="@id/btnSTime"
                 android:textColor="@color/colorPrimaryDark"
                 />
+
+            <EditText
+                android:id="@+id/textNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="64dp"
+                android:layout_marginBottom="108dp"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:hint="Add note"
+                />
+
         </RelativeLayout>
 
         <Button

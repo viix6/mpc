@@ -57,9 +57,11 @@ public class Profiles extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                String petName = (String)document.get("Name");
-                                String petID = document.getId();
-                                addPetButton(petName,petID);
+                                if("PetData".equals((String)document.get("DataType"))) {
+                                    String petName = (String) document.get("Name");
+                                    String petID = document.getId();
+                                    addPetButton(petName, petID);
+                                }
 
                             }
                         } else {

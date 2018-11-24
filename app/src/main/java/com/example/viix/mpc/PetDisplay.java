@@ -72,7 +72,7 @@ public class PetDisplay extends AppCompatActivity {
         });
 
     }
-    // TODO: edit button to edit the information
+
 
     @Override
     protected void onStart(){
