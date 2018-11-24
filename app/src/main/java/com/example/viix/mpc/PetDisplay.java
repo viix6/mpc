@@ -1,16 +1,21 @@
 package com.example.viix.mpc;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -18,7 +23,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 public class PetDisplay extends AppCompatActivity {
-    private Button btnEdit, btnReminderD;
+    private Button btnEdit, btnReminderD, btnDelete;
     private LinearLayout linearLayout;
     private FirebaseFirestore db;
     private String userUid,uniqueId;
@@ -33,7 +38,7 @@ public class PetDisplay extends AppCompatActivity {
         if (intent != null){
             uniqueId = intent.getStringExtra("petID");
         }
-
+        btnDelete = findViewById(R.id.btnDelete);
         btnEdit = findViewById(R.id.btnEdit);
         btnReminderD = findViewById(R.id.btnReminderD);
         linearLayout = findViewById(R.id.displayLayout);
@@ -46,6 +51,14 @@ public class PetDisplay extends AppCompatActivity {
                 startActivity(new Intent(PetDisplay.this, Reminder2.class));
             }
         });
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                deletePetWish();
+            }
+        });
+
     }
     // TODO: edit button to edit the information
     
@@ -76,7 +89,7 @@ public class PetDisplay extends AppCompatActivity {
                     }
                 });
     }
-    
+
     @SuppressLint("SetTextI18n")
     private void addPetInfo(String petName, String petType, String petBreed, String petWeight, String petAge){
         TextView petText = new TextView(this);
@@ -98,5 +111,43 @@ public class PetDisplay extends AppCompatActivity {
         this.linearLayout.addView(petText2);
         this.linearLayout.addView(petText3);
         this.linearLayout.addView(petText4);
+    }
+
+    private void deletePetWish(){
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Delete Pet Profile")
+                .setMessage("Are you sure you want to delete this profile?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        deletePet();
+                    }
+
+                })
+                .setNegativeButton("No", null)
+                .show();
+    }
+
+
+    private void deletePet(){
+        db.collection(this.userUid).document(this.uniqueId)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        startActivity(new Intent(PetDisplay.this, Profiles.class));
+                        finish();
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                    }
+                });
+
     }
 }
