@@ -31,7 +31,6 @@ public class Profiles extends AppCompatActivity {
         linearLayout = findViewById(R.id.profileLayout);
         this.db = FirebaseFirestore.getInstance();
         this.userUid = FirebaseAuth.getInstance().getUid();
-        addPetButtons();
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,10 +40,16 @@ public class Profiles extends AppCompatActivity {
 
 
     }
+    @Override
+    protected void onStart(){
+        super.onStart();
+        addPetButtons();
+    }
 
 
 
     private void addPetButtons(){
+        this.linearLayout.removeAllViews();
         db.collection(this.userUid)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
