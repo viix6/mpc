@@ -29,6 +29,11 @@ public class PetDisplay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet_display);
 
+        Intent intent = getIntent();
+        if (intent != null){
+            uniqueId = intent.getStringExtra("petID");
+        }
+
         btnEdit = findViewById(R.id.btnEdit);
         btnReminderD = findViewById(R.id.btnReminderD);
         linearLayout = findViewById(R.id.displayLayout);
@@ -53,13 +58,16 @@ public class PetDisplay extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                String petName = (String)document.get("Name");
-                                String petType = (String)document.get("Type");
-                                String petBreed = (String)document.get("Breed");
-                                String petWeight = (String)document.get("Weight");
-                                String petAge = (String)document.get("Age");
                                 String petID = document.getId();
-                                addPetInfo(petName, petType, petBreed, petWeight, petAge, petID);
+                                if(petID.equals(uniqueId)) {
+                                    String petName = (String) document.get("Name");
+                                    String petType = (String) document.get("Type");
+                                    String petBreed = (String) document.get("Breed");
+                                    String petWeight = (String) document.get("Weight");
+                                    String petAge = (String) document.get("Age");
+
+                                    addPetInfo(petName, petType, petBreed, petWeight, petAge);
+                                }
 
                             }
                         } else {
@@ -68,9 +76,9 @@ public class PetDisplay extends AppCompatActivity {
                     }
                 });
     }
-    // TODO : fix back command issue where it display old view
+    
     @SuppressLint("SetTextI18n")
-    private void addPetInfo(String petName, String petType, String petBreed, String petWeight, String petAge, String petID){
+    private void addPetInfo(String petName, String petType, String petBreed, String petWeight, String petAge){
         TextView petText = new TextView(this);
         TextView petText1 = new TextView(this);
         TextView petText2 = new TextView(this);

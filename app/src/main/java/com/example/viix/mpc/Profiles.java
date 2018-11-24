@@ -68,15 +68,17 @@ public class Profiles extends AppCompatActivity {
                     }
                 });
     }
-    // TODO : fix back command issue where it display old view
-    private void addPetButton(String petName, String petID){
+
+    private void addPetButton(String petName, final String petID){
         Button petButton = new Button(this);
         petButton.setText(petName);
         //add a listener to the button to start the activity where the pet will be display
         petButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Profiles.this, PetDisplay.class));
+                Intent intent = new Intent(Profiles.this, PetDisplay.class);
+                intent.putExtra("petID",petID);
+                startActivity(intent);
 
             }
         });
