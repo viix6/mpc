@@ -37,9 +37,11 @@ android:padding="16dp">
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="20dip"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/mybutton"
     android:text="@string/sign_in"
-    android:textColor="@color/white" />
+    android:textColor="@color/white"
+    android:backgroundTint="@color/colorPrimary"
+        />
     <!-- Link to Login Screen -->
 
 
@@ -50,10 +52,12 @@ android:padding="16dp">
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="16dp"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/mybutton"
+    android:backgroundTint="@color/colorPrimary"
     android:text="@string/sign_up"
     android:textColor="@color/white"
-    android:textStyle="bold" />
+    android:textStyle="bold"
+    />
 
 
     <!-- Link to Forget Password -->

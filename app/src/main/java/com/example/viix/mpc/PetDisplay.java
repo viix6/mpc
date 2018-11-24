@@ -21,7 +21,7 @@ public class PetDisplay extends AppCompatActivity {
     private Button btnEdit, btnReminderD;
     private LinearLayout linearLayout;
     private FirebaseFirestore db;
-    private String userUid;
+    private String userUid,uniqueId;
 
 
     @Override
@@ -38,11 +38,12 @@ public class PetDisplay extends AppCompatActivity {
         btnReminderD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PetDisplay.this, Reminder.class));
+                startActivity(new Intent(PetDisplay.this, Reminder2.class));
             }
         });
     }
     // TODO: edit button to edit the information
+    
 
     private void addPetInfos(){
         db.collection(this.userUid)

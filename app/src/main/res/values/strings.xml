@@ -35,5 +35,14 @@
     <string name="pet_type">Pet Type</string>
     <string name="name_of_pet">Name of pet</string>
     <string name="sign_out2">Sign out</string>
+    <string name="others">Others</string>
+    <string name="rabbit">Rabbit</string>
+    <string name="bird">Bird</string>
+    <string name="TextSReminder">Reminder</string>
+    <string name="dateR">Select Date</string>
+    <string name="timeR">Select Time</string>
+    <string name="petR">Select Pet</string>
+    <string name="saveR2">Save</string>
+
 
 </resources>

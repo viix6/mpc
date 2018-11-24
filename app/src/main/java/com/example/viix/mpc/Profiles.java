@@ -72,10 +72,13 @@ public class Profiles extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Profiles.this, PetDisplay.class));
+
             }
         });
         //TODO : pass the petID as a parameter to our activity so we can retrieve the data from the firestore
         this.linearLayout.addView(petButton);
+
+
 
 
 

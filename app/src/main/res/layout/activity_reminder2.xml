@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Reminder2">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textSReminder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/TextSReminder"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+        <RelativeLayout
+            android:layout_width="368dp"
+            android:layout_height="0dp"
+            android:textAlignment="center"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/textSDate"
+                android:layout_width="180dp"
+                android:layout_marginTop="50dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textSReminder"
+                android:layout_alignStart="@id/btnSDate"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="168dp"
+                android:layout_marginLeft="168dp"
+                android:layout_marginEnd="0dp"
+                tools:ignore="NotSibling" />
+        <Button
+            android:id="@+id/btnSDate"
+            android:layout_alignBottom="@id/textSReminder"
+            android:layout_marginTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="200dp"
+            android:text="@string/dateR"
+            android:background="@drawable/mybutton"
+            app:layout_constraintEnd_toEndOf="@id/btnSDate"
+            app:layout_constraintStart_toStartOf="@id/btnSTime"
+            app:layout_constraintTop_toTopOf="@id/btnSTime"
+            tools:ignore="NotSibling"
+            android:textColor="@color/colorPrimaryDark"/>
+
+            <EditText
+                android:id="@+id/textSTime"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textSDate"
+                android:layout_alignStart="@id/btnSTime"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="168dp"
+                android:layout_marginLeft="168dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginTop="5dp"
+                 />
+
+            <Button
+                android:id="@+id/btnSTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/btnSDate"
+                android:layout_marginBottom="-54dp"
+                android:layout_marginEnd="200dp"
+                android:text="@string/timeR"
+                android:background="@drawable/mybutton"
+                app:layout_constraintBottom_toBottomOf="@id/btnSDate"
+                app:layout_constraintEnd_toEndOf="@id/btnSDate"
+                app:layout_constraintStart_toStartOf="@id/btnSPet"
+                app:layout_constraintTop_toTopOf="@id/btnSPet"
+                android:textColor="@color/colorPrimaryDark"/>
+
+            <EditText
+                android:id="@+id/textSPet"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textSTime"
+                android:layout_alignStart="@id/btnSPet"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="168dp"
+                android:layout_marginLeft="168dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginTop="5dp"
+                tools:ignore="NotSibling" />
+
+            <Button
+                android:id="@+id/btnSPet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/btnSTime"
+                android:layout_marginBottom="-58dp"
+                android:layout_marginEnd="200dp"
+                android:text="@string/petR"
+                android:background="@drawable/mybutton"
+                app:layout_constraintBottom_toBottomOf="@id/btnSTime"
+                app:layout_constraintEnd_toEndOf="@id/btnSTime"
+                android:textColor="@color/colorPrimaryDark"
+                />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnSsave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/saveR2"
+            android:textColor="@color/white"
+            android:background="@drawable/mybutton"
+            android:backgroundTint="@color/colorPrimary"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

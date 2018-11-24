@@ -70,7 +70,6 @@ public class PetProfile extends AppCompatActivity {
 
     private void save() {
         String name = nameText.getText().toString();
-        //TODO String type = typeR.getText().toString();
         String breed = breedText.getText().toString();
         String weight = wghtText.getText().toString();
         String age = ageText.getText().toString();

@@ -84,7 +84,9 @@ public class Login extends AppCompatActivity {
                                             }
                                             else
                                             {
-                                                //TODO: incorrect name and/or password
+                                                // incorrect name and/or password
+                                                Toast.makeText(Login.this, "Incorrect Email and/or Password", Toast.LENGTH_LONG).show();
+
                                             }
                                         }
                                         PD.dismiss();
