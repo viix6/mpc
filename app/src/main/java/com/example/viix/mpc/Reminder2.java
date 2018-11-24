@@ -216,7 +216,7 @@ public class  Reminder2 extends AppCompatActivity implements View.OnClickListene
         user.put("Hour",mHour);
         user.put("Minute",mMinute);
         user.put("Pets", petArray);
-        user.put("Notes", textNote.getText());
+        user.put("Notes", textNote.getText().toString());
         //we need an unique ID for each reminders
         Long uniqueId = System.currentTimeMillis()/1000;
 
