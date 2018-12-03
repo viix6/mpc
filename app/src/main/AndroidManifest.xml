@@ -27,7 +27,9 @@
         <activity android:name=".Main2Activity" />
         <activity android:name=".PetDisplay" />
         <activity android:name=".Reminder2" />
-        <activity android:name=".PetEdit"></activity>
+        <activity android:name=".PetEdit" />
+        <activity android:name=".ReminderView" />
+        <activity android:name=".ReminderDisplay"></activity>
     </application>
 
 </manifest>

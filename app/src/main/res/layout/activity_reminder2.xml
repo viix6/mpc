@@ -48,7 +48,12 @@
                 android:layout_marginStart="168dp"
                 android:layout_marginLeft="168dp"
                 android:layout_marginEnd="0dp"
-                tools:ignore="NotSibling" />
+                tools:ignore="NotSibling"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                />
         <Button
             android:id="@+id/btnSDate"
             android:layout_alignBottom="@id/textSReminder"
@@ -76,6 +81,10 @@
                 android:layout_marginLeft="168dp"
                 android:layout_marginEnd="0dp"
                 android:layout_marginTop="5dp"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                  />
 
             <Button
@@ -107,6 +116,10 @@
                 android:layout_marginTop="5dp"
                 tools:ignore="NotSibling"
                 android:inputType="textMultiLine"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 />
 
             <Button
@@ -134,7 +147,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="94dp"
                 android:ems="10"
-                android:hint="Add note"
+                android:hint="@string/add_notes"
                 android:inputType="textMultiLine" />
 
         </RelativeLayout>

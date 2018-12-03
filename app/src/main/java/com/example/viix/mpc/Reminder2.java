@@ -28,7 +28,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -36,8 +37,8 @@ import java.util.Map;
 
 public class  Reminder2 extends AppCompatActivity implements View.OnClickListener {
 
-    Button btnSDate, btnSTime, btnSPet, btnSsave;
-    EditText textSDate, textSTime, textSPet, textNote;
+    private Button btnSDate, btnSTime, btnSPet, btnSsave;
+    private EditText textSDate, textSTime, textSPet, textNote;
     private FirebaseFirestore db;
     private String userUid,uniqueId;
     private int mYear, mMonth, mDay, mHour, mMinute;
@@ -100,7 +101,7 @@ public class  Reminder2 extends AppCompatActivity implements View.OnClickListene
             pickPet();
         }
         else if (v == btnSsave){
-            save();
+            saveWish();
         }
     }
 
@@ -222,22 +223,39 @@ public class  Reminder2 extends AppCompatActivity implements View.OnClickListene
         }
     }
 
-    //TODO: confirm reminder
+
+    private void saveWish(){
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Set Reminders")
+                .setMessage("Are you sure you want to set this reminder?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        save();
+                    }
+
+                })
+                .setNegativeButton("No", null)
+                .show();
+    }
     //TODO: notifications
+
     private void save() {
         Map<String, Object> user = new HashMap<>();
-        user.put("DataType","ReminderData");
-        user.put("Year",mYear);
-        user.put("Month",mMonth);
-        user.put("Day",mDay);
-        user.put("Hour",mHour);
-        user.put("Minute",mMinute);
+        user.put("DataType", "ReminderData");
+        user.put("Year", mYear);
+        user.put("Month", mMonth);
+        user.put("Day", mDay);
+        user.put("Hour", mHour);
+        user.put("Minute", mMinute);
         user.put("Pets", petArray);
         user.put("Notes", textNote.getText().toString());
         //we need an unique ID for each reminders
-        Long uniqueId = System.currentTimeMillis()/1000;
+        Long uniqueId = System.currentTimeMillis() / 1000;
 
-        db.collection(this.userUid).document(uniqueId+"")
+        db.collection(this.userUid).document(uniqueId + "")
                 .set(user)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -249,7 +267,10 @@ public class  Reminder2 extends AppCompatActivity implements View.OnClickListene
                     public void onFailure(@NonNull Exception e) {
                     }
                 });
+
+         finish();
     }
+
 
 
 }

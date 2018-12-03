@@ -44,6 +44,7 @@
     <string name="petR">Select Pet</string>
     <string name="saveR2">Save</string>
     <string name="edit_pet_profile">Edit pet Profile</string>
+    <string name="add_notes">Add notes</string>
 
 
 </resources>
