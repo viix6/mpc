@@ -3,11 +3,11 @@
     <string name="firebase_change_password">FireBase Change Password</string>
     <string name="submit">Submit</string>
     <string name="mode" />
-    <string name="my_pet_s_calendar">my pet\'s calendar</string>
+    <string name="my_pet">my pet</string>
     <string name="login">Sign In</string>
     <string name="forget_password">Forget Password?</string>
     <string name="register">Sign Up</string>
-    <string name="welcome_to_your_pet_calendar">Welcome to your pet\'s calendar</string>
+    <string name="welcome_to_your_pet">Welcome to your pet\'s calendar </string>
     <string name="change_password">Change Password</string>
     <string name="sign_out">Sign Out</string>
     <string name="delete_user">Delete User</string>
@@ -20,7 +20,7 @@
     <string name="submit2">Submit</string>
     <string name="mode2">Mode</string>
     <string name="profiles">Profiles</string>
-    <string name="my_pet_s_calendar2">My Pet\'s Calendar</string>
+    <string name="my_pet_s_calendar2">My Pet</string>
     <string name="btnProfiles">Profiles</string>
     <string name="btnReminders">Reminders</string>
     <string name="add">Add</string>
@@ -38,13 +38,20 @@
     <string name="others">Others</string>
     <string name="rabbit">Rabbit</string>
     <string name="bird">Bird</string>
-    <string name="TextSReminder">Reminder</string>
+    <string name="TextSReminder">Reminders</string>
     <string name="dateR">Select Date</string>
     <string name="timeR">Select Time</string>
     <string name="petR">Select Pet</string>
-    <string name="saveR2">Save</string>
+    <string name="saveR2">Add to calendar</string>
     <string name="edit_pet_profile">Edit pet Profile</string>
-    <string name="add_notes">Add notes</string>
+    <string name="add_notes">Reminder type</string>
+    <string name="repeat_daily">Repeat Daily</string>
+    <string name="my_pet_s_calendar">my pet\'s calendar</string>
+    <string name="estimated_time_in_min">Estimated Time in Min</string>
+    <string name="today_reminders">Today\'s Reminders</string>
+    <string name="title_main">Home</string>
+    <string name="title_profiles">Profile</string>
+    <string name="title_setting">Settings</string>
 
 
 </resources>
