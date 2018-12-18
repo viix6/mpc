@@ -128,6 +128,9 @@ public class  Reminder2 extends AppCompatActivity implements View.OnClickListene
                                               int monthOfYear, int dayOfMonth) {
 
                             textSDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                            mYear = year;
+                            mMonth = monthOfYear;
+                            mDay = dayOfMonth;
 
                         }
                     }, mYear, mMonth, mDay);
@@ -149,6 +152,9 @@ public class  Reminder2 extends AppCompatActivity implements View.OnClickListene
                                           int minute) {
 
                         textSTime.setText(hourOfDay + ":" + minute);
+                        mHour = hourOfDay;
+                        mMinute = minute;
+
                     }
                 }, mHour, mMinute, false);
         timePickerDialog.show();
@@ -272,7 +278,7 @@ public class  Reminder2 extends AppCompatActivity implements View.OnClickListene
         save();
     }
 
-    //TODO: notifications
+
 
     private void save() {
         Map<String, Object> user = new HashMap<>();
