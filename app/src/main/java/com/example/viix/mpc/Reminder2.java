@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.provider.CalendarContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +20,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -38,7 +41,9 @@ import java.util.Map;
 public class  Reminder2 extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnSDate, btnSTime, btnSPet, btnSsave;
-    private EditText textSDate, textSTime, textSPet, textNote;
+    private EditText estimatedTimeText;
+    private TextView textSDate, textSTime, textSPet, textNote;
+    private CheckBox repeatCheckBox;
     private FirebaseFirestore db;
     private String userUid,uniqueId;
     private int mYear, mMonth, mDay, mHour, mMinute;
@@ -60,6 +65,7 @@ public class  Reminder2 extends AppCompatActivity implements View.OnClickListene
         btnSPet=findViewById(R.id.btnSPet);
         btnSsave=findViewById(R.id.btnSsave);
         textNote=findViewById(R.id.textNote);
+        repeatCheckBox=findViewById(R.id.repeatCheckBox);
 
         textSDate=findViewById(R.id.textSDate);
         textSTime=findViewById(R.id.textSTime);
@@ -228,18 +234,44 @@ public class  Reminder2 extends AppCompatActivity implements View.OnClickListene
         new AlertDialog.Builder(this)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("Set Reminders")
-                .setMessage("Are you sure you want to set this reminder?")
+                .setMessage("Are you sure you want to add this to your calendar?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener()
                 {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        save();
+                        addToCalenndar();
                     }
 
                 })
                 .setNegativeButton("No", null)
                 .show();
     }
+
+    private void addToCalenndar() {
+        Intent intent = new Intent(Intent.ACTION_INSERT);
+        intent.setType("vnd.android.cursor.item/event");
+        intent.putExtra(CalendarContract.Events.TITLE, textNote.getText().toString());
+        intent.putExtra(CalendarContract.Events.DESCRIPTION, textSPet.getText().toString());
+
+        //TODO: get time and date from the textView so the user doesnt have to input it x2
+
+
+        GregorianCalendar calDate = new GregorianCalendar(mYear, mMonth, mDay, mHour,mMinute);
+        intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,
+                calDate.getTimeInMillis());
+       // long estimatedTimeInMs = Integer.parseInt(estimatedTimeText.getText().toString())*60000;
+        //intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,
+          //      calDate.getTimeInMillis()+estimatedTimeInMs);
+        if(repeatCheckBox.isChecked()){
+            //TODO: Get day of the week, add it to string, pass it as argument
+            //intent.putExtra(CalendarContract.Events.RRULE, "FREQ=WEEKLY;COUNT=11;WKST=SU;BYDAY=TU,TH");
+        }
+
+        intent.putExtra(CalendarContract.Events.ACCESS_LEVEL, CalendarContract.Events.ACCESS_PRIVATE);
+        startActivity(intent);
+        save();
+    }
+
     //TODO: notifications
 
     private void save() {
