@@ -22,7 +22,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
-public class ReminderDisplay extends AppCompatActivity {
+public class ReminderDisplay extends AppCompatActivityWithNav {
 
     private FirebaseFirestore db;
     private String userUid;

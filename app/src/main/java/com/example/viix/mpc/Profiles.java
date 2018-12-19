@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.OnCompleteListener;
 
-public class Profiles extends AppCompatActivity {
+public class Profiles extends AppCompatActivityWithNav {
     private Button btnAdd;
     private LinearLayout linearLayout;
     private FirebaseFirestore db;

@@ -3,7 +3,7 @@
     <string name="firebase_change_password">FireBase Change Password</string>
     <string name="submit">Submit</string>
     <string name="mode" />
-    <string name="my_pet">my pet</string>
+    <string name="my_pet">my pet\'s Calendar</string>
     <string name="login">Sign In</string>
     <string name="forget_password">Forget Password?</string>
     <string name="register">Sign Up</string>
@@ -20,7 +20,7 @@
     <string name="submit2">Submit</string>
     <string name="mode2">Mode</string>
     <string name="profiles">Profiles</string>
-    <string name="my_pet_s_calendar2">My Pet</string>
+    <string name="my_pet_s_calendar2">My Pet\'s Calendar</string>
     <string name="btnProfiles">Profiles</string>
     <string name="btnReminders">Reminders</string>
     <string name="add">Add</string>

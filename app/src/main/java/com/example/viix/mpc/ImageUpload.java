@@ -131,6 +131,10 @@ public class ImageUpload extends AppCompatActivity {
                         Uri downloadUri = task.getResult();
                         if(downloadUri != null){
                             downloadUrl = downloadUri.toString();
+                            Intent returnIntent = new Intent();
+                            returnIntent.putExtra("url",downloadUrl);
+                            setResult(Activity.RESULT_OK,returnIntent);
+                            finish();
                         }
                     } else {
                         // Handle failures
@@ -139,10 +143,7 @@ public class ImageUpload extends AppCompatActivity {
                 }
             });
             //TODO: instead of finish(); go back to the previous layout to save the whole profile with the image
-            Intent returnIntent = new Intent();
-            returnIntent.putExtra("url",downloadUrl);
-            setResult(Activity.RESULT_OK,returnIntent);
-            finish();
+
         }
 
     }

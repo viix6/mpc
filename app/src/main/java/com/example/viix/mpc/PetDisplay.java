@@ -26,7 +26,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-public class PetDisplay extends AppCompatActivity {
+public class PetDisplay extends AppCompatActivityWithNav {
     private Button btnEdit, btnReminderD, btnDelete;
     private LinearLayout linearLayout;
     private FirebaseFirestore db;
@@ -102,8 +102,9 @@ public class PetDisplay extends AppCompatActivity {
                                     String petBreed = (String) document.get("Breed");
                                     String petWeight = (String) document.get("Weight");
                                     String petAge = (String) document.get("Age");
+                                    String petImg = (String) document.get("url");
 
-                                    addPetInfo(petName, petType, petBreed, petWeight, petAge);
+                                    addPetInfo(petName, petType, petBreed, petWeight, petAge, petImg);
                                 }
 
                             }
@@ -115,10 +116,10 @@ public class PetDisplay extends AppCompatActivity {
     }
 
     @SuppressLint("SetTextI18n")
-    private void addPetInfo(String petName, String petType, String petBreed, String petWeight, String petAge){
+    private void addPetInfo(String petName, String petType, String petBreed, String petWeight, String petAge, String petImg){
         this.linearLayout.removeAllViews();
 
-        ImageView imgPet = new ImageView(this);
+        ImageView myImageView = new ImageView(this);
         TextView nameText = new TextView(this);
         TextView typeText = new TextView(this);
         TextView breedText = new TextView(this);
@@ -126,8 +127,13 @@ public class PetDisplay extends AppCompatActivity {
         TextView ageText = new TextView(this);
 
         //TODO: display image from firebase
-       // ImageView myImageView = (ImageView)findViewById(R.id.imgView);
-        //myImageView.setImageResource(R.drawable.baseline_pets_24);
+        if(!"".equals(petImg)){
+            new DownloadImageTask(myImageView).execute(petImg);
+        }
+
+
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(200,200);
+        myImageView.setLayoutParams(layoutParams);
 
         nameText.setText("Name: " + petName);
         nameText.setTextColor(Color.parseColor("#421d5b"));
@@ -156,7 +162,7 @@ public class PetDisplay extends AppCompatActivity {
 
 
 
-        this.linearLayout.addView(imgPet);
+        this.linearLayout.addView(myImageView);
         this.linearLayout.addView(nameText);
         this.linearLayout.addView(typeText);
         this.linearLayout.addView(breedText);

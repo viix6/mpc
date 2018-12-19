@@ -68,7 +68,7 @@ public class PetProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivityForResult(new Intent(PetProfile.this, ImageUpload.class),1);
-                
+
 
             }
         });
