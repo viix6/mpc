@@ -6,6 +6,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -108,20 +109,37 @@ public class ReminderDisplay extends AppCompatActivity {
         TextView petsText = new TextView(this);
         TextView hourText = new TextView(this);
         TextView noteText = new TextView(this);
+        TextView lineText = new TextView(this);
 
         for(String pet:pets){
             stringPetNames = stringPetNames + petData.get(pet)+ ", ";
         }
 
-        petsText.setText("Name: " + stringPetNames);
-        petsText.setTextColor(Color.parseColor("#bdbdbd"));
+        petsText.setText("Pets: " + stringPetNames);
+        petsText.setTextColor(Color.parseColor("#421d5b"));
+        petsText.setTextScaleX(Float.parseFloat("0.8"));
+        petsText.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+
         hourText.setText("Time: " + dHour +":" + dMinute);
+        hourText.setTextColor(Color.parseColor("#905ea1"));
+        hourText.setTextScaleX(Float.parseFloat("0.8"));
+        hourText.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+
         noteText.setText("Note: " + note);
+        noteText.setTextColor(Color.parseColor("#905ea1"));
+        noteText.setTextScaleX(Float.parseFloat("0.8"));
+        noteText.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+        lineText.setText(" _____________________________ ");
+        lineText.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
 
 
         this.linearLayout.addView(petsText);
         this.linearLayout.addView(hourText);
         this.linearLayout.addView(noteText);
+        this.linearLayout.addView(lineText);
 
     }
 }

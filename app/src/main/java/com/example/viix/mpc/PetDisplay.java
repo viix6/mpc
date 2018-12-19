@@ -4,12 +4,16 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Layout;
+import android.text.style.ScaleXSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -114,24 +118,50 @@ public class PetDisplay extends AppCompatActivity {
     private void addPetInfo(String petName, String petType, String petBreed, String petWeight, String petAge){
         this.linearLayout.removeAllViews();
 
-        TextView petText = new TextView(this);
-        TextView petText1 = new TextView(this);
-        TextView petText2 = new TextView(this);
-        TextView petText3 = new TextView(this);
-        TextView petText4 = new TextView(this);
-        petText.setText("Name: " + petName);
-        petText1.setText("Type: " + petType);
-        petText2.setText("Breed: " + petBreed);
-        petText3.setText("Weight: " + petWeight);
-        petText4.setText("Date of Birth: " + petAge);
+        ImageView imgPet = new ImageView(this);
+        TextView nameText = new TextView(this);
+        TextView typeText = new TextView(this);
+        TextView breedText = new TextView(this);
+        TextView wghtText = new TextView(this);
+        TextView ageText = new TextView(this);
+
+        //TODO: display image from firebase
+        ImageView myImageView = (ImageView)findViewById(R.id.imgView);
+        myImageView.setImageResource(R.drawable.baseline_pets_24);
+
+        nameText.setText("Name: " + petName);
+        nameText.setTextColor(Color.parseColor("#421d5b"));
+        nameText.setTextScaleX(Float.parseFloat("0.8"));
+        nameText.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+        typeText.setText("Type: " + petType);
+        typeText.setTextColor(Color.parseColor("#421d5b"));
+        typeText.setTextScaleX(Float.parseFloat("0.8"));
+        typeText.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+        breedText.setText("Breed: " + petBreed);
+        breedText.setTextColor(Color.parseColor("#421d5b"));
+        breedText.setTextScaleX(Float.parseFloat("0.8"));
+        breedText.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+        wghtText.setText("Weight: " + petWeight);
+        wghtText.setTextColor(Color.parseColor("#421d5b"));
+        wghtText.setTextScaleX(Float.parseFloat("0.8"));
+        wghtText.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+        ageText.setText("Date of Birth: " + petAge);
+        ageText.setTextColor(Color.parseColor("#421d5b"));
+        ageText.setTextScaleX(Float.parseFloat("0.8"));
+        ageText.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
 
 
 
-        this.linearLayout.addView(petText);
-        this.linearLayout.addView(petText1);
-        this.linearLayout.addView(petText2);
-        this.linearLayout.addView(petText3);
-        this.linearLayout.addView(petText4);
+        this.linearLayout.addView(imgPet);
+        this.linearLayout.addView(nameText);
+        this.linearLayout.addView(typeText);
+        this.linearLayout.addView(breedText);
+        this.linearLayout.addView(wghtText);
+        this.linearLayout.addView(ageText);
     }
 
     private void deletePetWish(){

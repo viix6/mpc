@@ -20,7 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class PetProfile extends AppCompatActivity {
-    private Button btnSave, btnCancel;
+    private Button btnSave, btnCancel, btnimg;
     private EditText nameText, breedText, wghtText, ageText;
     private RadioGroup typeR;
     private FirebaseFirestore db;
@@ -36,6 +36,7 @@ public class PetProfile extends AppCompatActivity {
 
         btnSave = findViewById(R.id.btnSave);
         btnCancel = findViewById(R.id.btnCancel);
+        btnimg = findViewById(R.id.btnimg);
         nameText = findViewById(R.id.nameText);
         breedText = findViewById(R.id.breedText);
         wghtText = findViewById(R.id.wghtText);
@@ -55,6 +56,16 @@ public class PetProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(PetProfile.this, Profiles.class));
+                save();
+                finish();
+
+            }
+        });
+
+        btnimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PetProfile.this, ImageUpload.class));
                 save();
                 finish();
 

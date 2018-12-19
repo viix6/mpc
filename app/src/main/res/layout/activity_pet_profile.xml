@@ -152,6 +152,23 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <Button
+                android:id="@+id/btnimg"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/baseline_pets_24"
+                android:backgroundTint="@color/colorAccent"
+                android:text="Add image"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:paddingTop="20dp"
+                />
+
+            <Button
                 android:id="@+id/btnSave"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
@@ -175,7 +192,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="120dp"
                 android:text="@string/cancel"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"

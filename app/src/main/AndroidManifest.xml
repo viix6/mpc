@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.viix.mpc">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -29,7 +30,9 @@
         <activity android:name=".Reminder2" />
         <activity android:name=".PetEdit" />
         <activity android:name=".ReminderView" />
-        <activity android:name=".ReminderDisplay"></activity>
+        <activity android:name=".ReminderDisplay" />
+        <activity android:name=".Navigation" />
+        <activity android:name=".ImageUpload"></activity>
     </application>
 
 </manifest>

@@ -259,7 +259,6 @@ public class  Reminder2 extends AppCompatActivity implements View.OnClickListene
         intent.putExtra(CalendarContract.Events.TITLE, textNote.getText().toString());
         intent.putExtra(CalendarContract.Events.DESCRIPTION, textSPet.getText().toString());
 
-        //TODO: get time and date from the textView so the user doesnt have to input it x2
 
 
         GregorianCalendar calDate = new GregorianCalendar(mYear, mMonth, mDay, mHour,mMinute);
@@ -268,10 +267,10 @@ public class  Reminder2 extends AppCompatActivity implements View.OnClickListene
        // long estimatedTimeInMs = Integer.parseInt(estimatedTimeText.getText().toString())*60000;
         //intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,
           //      calDate.getTimeInMillis()+estimatedTimeInMs);
-        if(repeatCheckBox.isChecked()){
+       // if(repeatCheckBox.isChecked()){
             //TODO: Get day of the week, add it to string, pass it as argument
             //intent.putExtra(CalendarContract.Events.RRULE, "FREQ=WEEKLY;COUNT=11;WKST=SU;BYDAY=TU,TH");
-        }
+        //}
 
         intent.putExtra(CalendarContract.Events.ACCESS_LEVEL, CalendarContract.Events.ACCESS_PRIVATE);
         startActivity(intent);
