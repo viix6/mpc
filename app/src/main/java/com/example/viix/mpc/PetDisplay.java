@@ -126,8 +126,8 @@ public class PetDisplay extends AppCompatActivity {
         TextView ageText = new TextView(this);
 
         //TODO: display image from firebase
-        ImageView myImageView = (ImageView)findViewById(R.id.imgView);
-        myImageView.setImageResource(R.drawable.baseline_pets_24);
+       // ImageView myImageView = (ImageView)findViewById(R.id.imgView);
+        //myImageView.setImageResource(R.drawable.baseline_pets_24);
 
         nameText.setText("Name: " + petName);
         nameText.setTextColor(Color.parseColor("#421d5b"));

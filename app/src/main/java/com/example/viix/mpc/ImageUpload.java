@@ -1,5 +1,6 @@
 package com.example.viix.mpc;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -13,23 +14,34 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 public class ImageUpload extends AppCompatActivity {
 
     private Button btnChoose, btnUpload, btnimgCancel;
     private ImageView imageView;
     private FirebaseFirestore db;
+    private FirebaseStorage storage;
+    private StorageReference storageRef;
     private String userUid,uniqueId;
     private Uri filePath;
+    private String downloadUrl ="";
 
     private final int PICK_IMAGE_REQUEST = 71;
     @Override
@@ -42,6 +54,8 @@ public class ImageUpload extends AppCompatActivity {
         btnimgCancel = findViewById(R.id.btnimgCancel);
         imageView = findViewById(R.id.imgView);
 
+        this.storage = FirebaseStorage.getInstance();
+        this.storageRef = storage.getReference();
         this.db = FirebaseFirestore.getInstance();
         this.userUid = FirebaseAuth.getInstance().getUid();
 
@@ -97,29 +111,38 @@ public class ImageUpload extends AppCompatActivity {
             progressDialog.show();
 
             //TODO: create images to store in firebase
-            Map<String, Object> user = new HashMap<>();
-            user.put("DataType", "ImageData");
-            user.put("Image", imageView);
+            final StorageReference ref = storageRef.child("images/"+filePath.getLastPathSegment());
+            UploadTask uploadTask = ref.putFile(filePath);
 
-            //we need an unique ID for each image
-            Long uniqueId = System.currentTimeMillis() / 1000;
+            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                @Override
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()) {
+                        throw task.getException();
+                    }
 
-            db.collection(this.userUid).document(uniqueId + "")
-                    .set(user)
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Toast.makeText(ImageUpload.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                    // Continue with the task to get the download URL
+                    return ref.getDownloadUrl();
+                }
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()) {
+                        Uri downloadUri = task.getResult();
+                        if(downloadUri != null){
+                            downloadUrl = downloadUri.toString();
                         }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(ImageUpload.this, "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
+                    } else {
+                        // Handle failures
+                        // ...
+                    }
+                }
+            });
             //TODO: instead of finish(); go back to the previous layout to save the whole profile with the image
+            Intent returnIntent = new Intent();
+            returnIntent.putExtra("url",downloadUrl);
+            setResult(Activity.RESULT_OK,returnIntent);
+            finish();
         }
 
     }

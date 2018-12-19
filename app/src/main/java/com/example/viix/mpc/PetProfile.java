@@ -1,5 +1,6 @@
 package com.example.viix.mpc;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
@@ -25,6 +26,7 @@ public class PetProfile extends AppCompatActivity {
     private RadioGroup typeR;
     private FirebaseFirestore db;
     private String userUid;
+    private String imageUrl = "";
 
 
     @Override
@@ -65,7 +67,7 @@ public class PetProfile extends AppCompatActivity {
         btnimg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PetProfile.this, ImageUpload.class));
+                startActivityForResult(new Intent(PetProfile.this, ImageUpload.class),1);
                 save();
                 finish();
 
@@ -101,6 +103,7 @@ public class PetProfile extends AppCompatActivity {
         user.put("Breed",breed);
         user.put("Weight",weight);
         user.put("Age",age);
+        user.put("url",imageUrl);
         //we need an unique ID for each pet
         // we are lazy and the ID needs to be unique only for the user, so we can use the current time as an ID
         // (a same user can't create 2 pets at the same time), p1 p2?
@@ -120,4 +123,17 @@ public class PetProfile extends AppCompatActivity {
                 });
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                imageUrl=data.getStringExtra("url");
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+            }
+        }
+    }//onActivityResult
 }
