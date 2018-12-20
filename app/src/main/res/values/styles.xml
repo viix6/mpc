@@ -26,7 +26,7 @@
     </style>
 
     <style name="MyActionBar.MenuTextStyle"
-        parent="style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">@android:color/darker_gray</item>
         <item name="android:textStyle">italic</item>
         <item name="android:textSize">20sp</item>
