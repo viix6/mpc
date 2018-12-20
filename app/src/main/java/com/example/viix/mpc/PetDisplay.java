@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.text.Layout;
 import android.text.style.ScaleXSpan;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -126,13 +127,13 @@ public class PetDisplay extends AppCompatActivityWithNav {
         TextView wghtText = new TextView(this);
         TextView ageText = new TextView(this);
 
-        //TODO: display image from firebase
         if(!"".equals(petImg)){
             new DownloadImageTask(myImageView).execute(petImg);
         }
 
 
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(200,200);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(800,600);
+        layoutParams.gravity = Gravity.CENTER;
         myImageView.setLayoutParams(layoutParams);
 
         nameText.setText("Name: " + petName);
